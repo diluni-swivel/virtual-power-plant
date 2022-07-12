@@ -39,7 +39,7 @@ public class VirtualPowerPlantServiceImpl implements VirtualPowerPlantService {
         try {
             successIncidents.forEach(batteryDto -> {
                 Optional<PostalArea> postalArea = postalAreaRepository.findById(batteryDto.getPostCode());
-                if (postalArea.isPresent()) {
+                if (postalArea.isPresent() && batteryDto.getMegaWattCapacity() != null) {
                     Battery battery = new Battery(batteryDto.getName(), batteryDto.getMegaWattCapacity(), postalArea.get());
                     batteryRepository.save(battery);
                 } else {
