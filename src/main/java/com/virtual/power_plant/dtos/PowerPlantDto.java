@@ -12,19 +12,19 @@ import java.util.List;
 public class PowerPlantDto {
     String range;
     Integer noOfBatteries;
-    Double totalWatts;
-    Double avgWatt;
+    Double totalMWatts;
+    Double avgMWatt;
     List<String> batteryNames;
 
-    public PowerPlantDto(){
+    public PowerPlantDto() {
 
     }
 
-    public PowerPlantDto(String range, Integer noOfBatteries, Double totalWatts, Double avgWatt, List<String> batteryNames) {
+    public PowerPlantDto(String range, Integer noOfBatteries, Double totalMWatts, Double avgMWatt, List<String> batteryNames) {
         this.range = range;
         this.noOfBatteries = noOfBatteries;
-        this.totalWatts = totalWatts;
-        this.avgWatt = avgWatt;
+        this.totalMWatts = totalMWatts;
+        this.avgMWatt = avgMWatt;
         this.batteryNames = batteryNames;
     }
 

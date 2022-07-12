@@ -9,10 +9,12 @@ import com.virtual.power_plant.repositories.PostalAreaRepository;
 import com.virtual.power_plant.services.VirtualPowerPlantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
 /**
@@ -32,40 +34,49 @@ public class VirtualPowerPlantServiceImpl implements VirtualPowerPlantService {
     @Transactional
     public Map<String, List<BatteryDto>> addBatteries(List<BatteryDto> batteryDtos) {
         List<BatteryDto> failIncidents = new ArrayList<>();
+        CopyOnWriteArrayList<BatteryDto> successIncidents = new CopyOnWriteArrayList<>(batteryDtos);
+        Iterator<BatteryDto> iterator = successIncidents.iterator();
         try {
-//            List<Battery> batteryList = batteryDtos.stream().
-//                    map(batteryDto -> new Battery(batteryDto.getName(), batteryDto.getWattCapacity(), postalAreaRepository.findById(batteryDto.getPostal_code()).get()))
-//                    .collect(Collectors.toList());
-//            batteryRepository.saveAllAndFlush(batteryList);
-
-            batteryDtos.stream().forEach(batteryDto -> {
-                Optional<PostalArea> postalArea = postalAreaRepository.findById(batteryDto.getPostal_code());
+            successIncidents.forEach(batteryDto -> {
+                Optional<PostalArea> postalArea = postalAreaRepository.findById(batteryDto.getPostCode());
                 if (postalArea.isPresent()) {
-                    Battery battery = new Battery(batteryDto.getName(), batteryDto.getWattCapacity(), postalArea.get());
+                    Battery battery = new Battery(batteryDto.getName(), batteryDto.getMegaWattCapacity(), postalArea.get());
                     batteryRepository.save(battery);
                 } else {
-                    batteryDtos.remove(batteryDto);
+                    successIncidents.remove(batteryDto);
                     failIncidents.add(batteryDto);
                 }
+                iterator.hasNext();
             });
+            return new HashMap<>() {{
+                put(HttpStatus.CREATED.getReasonPhrase(), successIncidents);
+                put(HttpStatus.EXPECTATION_FAILED.getReasonPhrase(), failIncidents);
+            }};
         } catch (Exception e) {
             return new HashMap<>() {{
                 put(e.getMessage(), batteryDtos);
             }};
         }
-        return new HashMap<>() {{
-            put(HttpStatus.CREATED.getReasonPhrase(), batteryDtos);
-            put(HttpStatus.EXPECTATION_FAILED.getReasonPhrase(), failIncidents);
-        }};
     }
 
     @Override
     public PowerPlantDto getBatteries(Long fromCode, Long toCode) {
         List<BatteryDto> batteries = batteryRepository.findAllByPostalCodeRange(fromCode, toCode);
-        Double totalWatts = batteries.stream().mapToDouble(BatteryDto::getWattCapacity).sum();
+        Double totalMWatts = batteries.stream().mapToDouble(BatteryDto::getMegaWattCapacity).sum();
         List<String> batteryNames = batteries.stream().map(battery -> battery.getName()).collect(Collectors.toList());
         Collections.sort(batteryNames);
-        return new PowerPlantDto(fromCode + "-" + toCode, batteries.size(), totalWatts, (totalWatts / batteries.size()), batteryNames);
+        return new PowerPlantDto(fromCode + "-" + toCode, batteries.size(), totalMWatts, (totalMWatts / batteries.size()), batteryNames);
+    }
+
+    @Override
+    @Transactional
+    public ResponseEntity addPostalAreas(List<PostalArea> postalAreas) {
+        try {
+            postalAreaRepository.saveAllAndFlush(postalAreas);
+            return new ResponseEntity<>(HttpStatus.CREATED.getReasonPhrase(), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

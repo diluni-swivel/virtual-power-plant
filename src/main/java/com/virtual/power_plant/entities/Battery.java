@@ -18,20 +18,20 @@ public class Battery extends BaseEntity {
 
     private String name;
 
-    private Double wattCapacity;
+    private Double mWattCapacity;
 
     @ManyToOne
-    @JoinColumn(name = "postal_code", nullable = false)
-    private PostalArea postalCode;
+    @JoinColumn(name = "post_code", nullable = false)
+    private PostalArea postCode;
 
-    public Battery(){
+    public Battery() {
 
     }
 
-    public Battery(String name, Double wattCapacity, PostalArea postalCode) {
+    public Battery(String name, Double mWattCapacity, PostalArea postCode) {
         this.name = name;
-        this.wattCapacity = wattCapacity;
-        this.postalCode = postalCode;
+        this.mWattCapacity = mWattCapacity;
+        this.postCode = postCode;
     }
 
 }

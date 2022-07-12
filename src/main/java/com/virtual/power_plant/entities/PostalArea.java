@@ -13,8 +13,8 @@ import javax.persistence.*;
 public class PostalArea {
 
     @Id
-    @Column(name = "postal_code")
-    private Long postalCode;
+    @Column(name = "post_code")
+    private Long postCode;
 
     private String areaName;
 

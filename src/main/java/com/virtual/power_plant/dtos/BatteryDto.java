@@ -9,17 +9,17 @@ import lombok.Data;
 @Data
 public class BatteryDto {
     private String name;
-    private Double wattCapacity;
-    private Long postal_code;
+    private Double megaWattCapacity;
+    private Long postCode;
 
     public BatteryDto() {
 
     }
 
-    public BatteryDto(String name, Double wattCapacity, Long postal_code) {
+    public BatteryDto(String name, Double megaWattCapacity, Long postCode) {
         this.name = name;
-        this.wattCapacity = wattCapacity;
-        this.postal_code = postal_code;
+        this.megaWattCapacity = megaWattCapacity;
+        this.postCode = postCode;
     }
 
 }
