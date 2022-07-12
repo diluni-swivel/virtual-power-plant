@@ -1,6 +1,7 @@
 package com.virtual.power_plant.dtos;
 
 import lombok.Data;
+import lombok.NonNull;
 
 /**
  * created by Diluni
@@ -8,8 +9,11 @@ import lombok.Data;
  */
 @Data
 public class BatteryDto {
+    @NonNull
     private String name;
+    @NonNull
     private Double megaWattCapacity;
+    @NonNull
     private Long postCode;
 
     public BatteryDto() {
