@@ -9,13 +9,13 @@ Solution contains below technologies, considerations, features and documents;
 
 1. Technologies - Java 11, SpringBoot 2.7.1, Maven 3.8.6, Postgresql 14, Lombok package.
 
-2. You have to configure application.properties file database details (add your username and password), create database power_plant_db. 
+2. You have to configure application.properties file with your database details (add your username and password), create database power_plant_db. 
 
 3. Postman collection with response examples is under the "Virtual Power Plant.postman_collection".
 
-4. Postal area can have multiple batteries.
+4. One postal area can have multiple batteries.
 
-5. Add powerPlantId and isDecommissioned flag into the Battery as an initiation point to the multiple power plant management system.
+5. Columns powerPlantId and isDecommissioned are there in the Battery as an initiation point to the multiple power plant management system.
 
 6. Add Postal Area POST REST API - This allows user to add master data which are prerequired for run this solution.
 
