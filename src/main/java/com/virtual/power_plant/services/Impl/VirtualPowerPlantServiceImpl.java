@@ -64,6 +64,7 @@ public class VirtualPowerPlantServiceImpl implements VirtualPowerPlantService {
         List<BatteryDto> batteries = batteryRepository.findAllByPostalCodeRange(fromCode, toCode);
         Double totalWatts = batteries.stream().mapToDouble(BatteryDto::getWattCapacity).sum();
         List<String> batteryNames = batteries.stream().map(battery -> battery.getName()).collect(Collectors.toList());
+        Collections.sort(batteryNames);
         return new PowerPlantDto(fromCode + "-" + toCode, batteries.size(), totalWatts, (totalWatts / batteries.size()), batteryNames);
     }
 
