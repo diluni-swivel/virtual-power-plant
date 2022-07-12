@@ -1,7 +1,5 @@
 # virtual-power-plant
-## Backend Code Challenge 
-
-Virtual Power Plant System
+## Virtual Power Plant System - Backend Code Challenge 
 
 ***************************************************************************************************************************************************************
 
