@@ -20,6 +20,7 @@ public class Battery extends BaseEntity {
 
     private Double mWattCapacity;
 
+    //    we can further manage this solution with considering this flag
     private Boolean isDecommissioned = Boolean.FALSE;
 
     //    we can further develop this solution into multiple power plants

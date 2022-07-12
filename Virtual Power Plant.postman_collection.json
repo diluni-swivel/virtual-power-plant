@@ -33,7 +33,7 @@
 			},
 			"response": [
 				{
-					"name": "addPostalAreas",
+					"name": "Add Postal Areas",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -72,7 +72,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 12 Jul 2022 08:04:38 GMT"
+							"value": "Tue, 12 Jul 2022 09:33:49 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -116,7 +116,7 @@
 			},
 			"response": [
 				{
-					"name": "addBatteries",
+					"name": "Add Batteries",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -155,7 +155,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 12 Jul 2022 08:27:14 GMT"
+							"value": "Tue, 12 Jul 2022 09:34:57 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -200,7 +200,7 @@
 			},
 			"response": [
 				{
-					"name": "getBatteries",
+					"name": "Get Batteries",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -240,7 +240,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 12 Jul 2022 08:28:22 GMT"
+							"value": "Tue, 12 Jul 2022 09:36:13 GMT"
 						},
 						{
 							"key": "Keep-Alive",
