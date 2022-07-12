@@ -20,6 +20,11 @@ public class Battery extends BaseEntity {
 
     private Double mWattCapacity;
 
+    private Boolean isDecommissioned = Boolean.FALSE;
+
+    //    we can further develop this solution into multiple power plants
+    private String powerPlantId = "power-plant-1";
+
     @ManyToOne
     @JoinColumn(name = "post_code", nullable = false)
     private PostalArea postCode;

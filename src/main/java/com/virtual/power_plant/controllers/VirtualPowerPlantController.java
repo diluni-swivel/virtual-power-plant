@@ -48,7 +48,7 @@ public class VirtualPowerPlantController {
 
     /**
      * POST API facilitates to add list of postal areas to the power plant.
-     * In this solution PostalArea entity contains masterdata which should be added as a prerequisite before run the project.
+     * In this solution PostalArea entity contains masterdata which must be added as prerequisite of the solution.
      *
      * @param postalAreas PostalArea obj List
      * @return ResponseEntity obj

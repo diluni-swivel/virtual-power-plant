@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "9f148999-d085-45d1-bea3-857bb9d130fb",
+		"name": "Virtual Power Plant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Postal Areas (prerequisite master data adding)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"postCode\":10115,\r\n      \"areaName\":\"Malabe\"\r\n   },\r\n   {\r\n      \"postCode\":12000,\r\n      \"areaName\":\"Kalutara\"\r\n   },\r\n   {\r\n      \"postCode\":10400,\r\n      \"areaName\":\"Moratuwa\"\r\n   },\r\n   {\r\n      \"postCode\":11500,\r\n      \"areaName\":\"Negombo\"\r\n   },\r\n   {\r\n      \"postCode\":11540,\r\n      \"areaName\":\"Kochchikade\"\r\n   },\r\n   {\r\n      \"postCode\":10250,\r\n      \"areaName\":\"Nugegoda\"\r\n   },\r\n   {\r\n      \"postCode\":100,\r\n      \"areaName\":\"Fort\"\r\n   },\r\n   {\r\n      \"postCode\":200,\r\n      \"areaName\":\"Slave lsland\"\r\n   },\r\n   {\r\n      \"postCode\":300,\r\n      \"areaName\":\"Colpetty\"\r\n   },\r\n   {\r\n      \"postCode\":400,\r\n      \"areaName\":\"Bambalapitiya\"\r\n   },\r\n   {\r\n      \"postCode\":500,\r\n      \"areaName\":\"Havelock Town\"\r\n   },\r\n   {\r\n      \"postCode\":600,\r\n      \"areaName\":\"Kirulapone\"\r\n   },\r\n   {\r\n      \"postCode\":10150,\r\n      \"areaName\":\"Athurugiriya\"\r\n   },\r\n   {\r\n      \"postCode\":10370,\r\n      \"areaName\":\"Mount Lavinia\"\r\n   },\r\n   {\r\n      \"postCode\":10280,\r\n      \"areaName\":\"Maharagama\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/power-plant/addPostalAreas",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"power-plant",
+						"addPostalAreas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addPostalAreas",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n      \"postCode\":10115,\r\n      \"areaName\":\"Malabe\"\r\n   },\r\n   {\r\n      \"postCode\":12000,\r\n      \"areaName\":\"Kalutara\"\r\n   },\r\n   {\r\n      \"postCode\":10400,\r\n      \"areaName\":\"Moratuwa\"\r\n   },\r\n   {\r\n      \"postCode\":11500,\r\n      \"areaName\":\"Negombo\"\r\n   },\r\n   {\r\n      \"postCode\":11540,\r\n      \"areaName\":\"Kochchikade\"\r\n   },\r\n   {\r\n      \"postCode\":10250,\r\n      \"areaName\":\"Nugegoda\"\r\n   },\r\n   {\r\n      \"postCode\":100,\r\n      \"areaName\":\"Fort\"\r\n   },\r\n   {\r\n      \"postCode\":200,\r\n      \"areaName\":\"Slave lsland\"\r\n   },\r\n   {\r\n      \"postCode\":300,\r\n      \"areaName\":\"Colpetty\"\r\n   },\r\n   {\r\n      \"postCode\":400,\r\n      \"areaName\":\"Bambalapitiya\"\r\n   },\r\n   {\r\n      \"postCode\":500,\r\n      \"areaName\":\"Havelock Town\"\r\n   },\r\n   {\r\n      \"postCode\":600,\r\n      \"areaName\":\"Kirulapone\"\r\n   },\r\n   {\r\n      \"postCode\":10150,\r\n      \"areaName\":\"Athurugiriya\"\r\n   },\r\n   {\r\n      \"postCode\":10370,\r\n      \"areaName\":\"Mount Lavinia\"\r\n   },\r\n   {\r\n      \"postCode\":10280,\r\n      \"areaName\":\"Maharagama\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/power-plant/addPostalAreas",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"power-plant",
+								"addPostalAreas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Jul 2022 08:04:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Created"
+				}
+			]
+		},
+		{
+			"name": "Add Batteries (response with pass, fail scenarios)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"name\":\"Bat_1\",\r\n      \"megaWattCapacity\":30,\r\n      \"postCode\":100\r\n   },\r\n   {\r\n      \"name\":\"Bat_2\",\r\n      \"megaWattCapacity\":12.6,\r\n      \"postCode\":200\r\n   },\r\n   {\r\n      \"name\":\"Bat_3\",\r\n      \"megaWattCapacity\":16,\r\n      \"postCode\":300\r\n   },\r\n   {\r\n      \"name\":\"Bat_4\",\r\n      \"megaWattCapacity\":41,\r\n      \"postCode\":400\r\n   },\r\n   {\r\n      \"name\":\"Bat_5\",\r\n      \"megaWattCapacity\":23.4,\r\n      \"postCode\":500\r\n   },\r\n   {\r\n      \"name\":\"Bat_6\",\r\n      \"megaWattCapacity\":51.3,\r\n      \"postCode\":600\r\n   },\r\n   {\r\n      \"name\":\"Bat_7\",\r\n      \"megaWattCapacity\":20,\r\n      \"postCode\":10115\r\n   },\r\n   {\r\n      \"name\":\"Bat_8\",\r\n      \"megaWattCapacity\":12,\r\n      \"postCode\":10150\r\n   },\r\n   {\r\n      \"name\":\"Bat_9\",\r\n      \"megaWattCapacity\":30,\r\n      \"postCode\":10115\r\n   },\r\n   {\r\n      \"name\":\"Bat_10\",\r\n      \"megaWattCapacity\":25,\r\n      \"postCode\":77777\r\n   },\r\n   {\r\n      \"name\":\"Bat_11\",\r\n      \"megaWattCapacity\":72,\r\n      \"postCode\":100\r\n   },\r\n   {\r\n      \"name\":\"Bat_12\",\r\n      \"megaWattCapacity\":36,\r\n      \"postCode\":200\r\n   },\r\n   {\r\n      \"name\":\"Bat_13\",\r\n      \"megaWattCapacity\":6.5,\r\n      \"postCode\":300\r\n   },\r\n   {\r\n      \"name\":\"Bat_14\",\r\n      \"megaWattCapacity\":10,\r\n      \"postCode\":200\r\n   },\r\n   {\r\n      \"name\":\"Bat_15\",\r\n      \"megaWattCapacity\":17,\r\n      \"postCode\":400\r\n   },\r\n   {\r\n      \"name\":\"Bat_16\",\r\n      \"megaWattCapacity\":28,\r\n      \"postCode\":10280\r\n   },\r\n   {\r\n      \"name\":\"Bat_17\",\r\n      \"megaWattCapacity\":32.5,\r\n      \"postCode\":88888\r\n   },\r\n   {\r\n      \"name\":\"Bat_18\",\r\n      \"megaWattCapacity\":44,\r\n      \"postCode\":10370\r\n   },\r\n   {\r\n      \"name\":\"Bat_19\",\r\n      \"megaWattCapacity\":68.8,\r\n      \"postCode\":10115\r\n   },\r\n   {\r\n      \"name\":\"Bat_20\",\r\n      \"megaWattCapacity\":15,\r\n      \"postCode\":10370\r\n   },\r\n   {\r\n      \"name\":\"Bat_21\",\r\n      \"megaWattCapacity\":80,\r\n      \"postCode\":10370\r\n   },\r\n   {\r\n      \"name\":\"Bat_22\",\r\n      \"megaWattCapacity\":32,\r\n      \"postCode\":10400\r\n   },\r\n   {\r\n      \"name\":\"Bat_23\",\r\n      \"megaWattCapacity\":65,\r\n      \"postCode\":10400\r\n   },\r\n   {\r\n      \"name\":\"Bat_24\",\r\n      \"megaWattCapacity\":45,\r\n      \"postCode\":600\r\n   },\r\n   {\r\n      \"name\":\"Bat_25\",\r\n      \"megaWattCapacity\":25,\r\n      \"postCode\":100\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/power-plant/addBatteries",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"power-plant",
+						"addBatteries"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addBatteries",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n      \"name\":\"Bat_a\",\r\n      \"megaWattCapacity\":30,\r\n      \"postCode\":100\r\n   },\r\n   {\r\n      \"name\":\"Bat_b\",\r\n      \"megaWattCapacity\":12.6,\r\n      \"postCode\":200\r\n   },\r\n   {\r\n      \"name\":\"Bat_c\",\r\n      \"megaWattCapacity\":16,\r\n      \"postCode\":300\r\n   },\r\n   {\r\n      \"name\":\"Bat_d\",\r\n      \"megaWattCapacity\":41,\r\n      \"postCode\":400\r\n   },\r\n   {\r\n      \"name\":\"Bat_e\",\r\n      \"megaWattCapacity\":23.4,\r\n      \"postCode\":500\r\n   },\r\n   {\r\n      \"name\":\"Bat_f\",\r\n      \"megaWattCapacity\":51.3,\r\n      \"postCode\":600\r\n   },\r\n   {\r\n      \"name\":\"Bat_g\",\r\n      \"megaWattCapacity\":20,\r\n      \"postCode\":10115\r\n   },\r\n   {\r\n      \"name\":\"Bat_h\",\r\n      \"megaWattCapacity\":12,\r\n      \"postCode\":10150\r\n   },\r\n   {\r\n      \"name\":\"Bat_i\",\r\n      \"megaWattCapacity\":30,\r\n      \"postCode\":10115\r\n   },\r\n   {\r\n      \"name\":\"Bat_j\",\r\n      \"megaWattCapacity\":25,\r\n      \"postCode\":77777\r\n   },\r\n   {\r\n      \"name\":\"Bat_k\",\r\n      \"megaWattCapacity\":72,\r\n      \"postCode\":100\r\n   },\r\n   {\r\n      \"name\":\"Bat_l\",\r\n      \"megaWattCapacity\":36,\r\n      \"postCode\":200\r\n   },\r\n   {\r\n      \"name\":\"Bat_m\",\r\n      \"megaWattCapacity\":6.5,\r\n      \"postCode\":300\r\n   },\r\n   {\r\n      \"name\":\"Bat_n\",\r\n      \"megaWattCapacity\":10,\r\n      \"postCode\":200\r\n   },\r\n   {\r\n      \"name\":\"Bat_o\",\r\n      \"megaWattCapacity\":17,\r\n      \"postCode\":400\r\n   },\r\n   {\r\n      \"name\":\"Bat_p\",\r\n      \"megaWattCapacity\":28,\r\n      \"postCode\":10280\r\n   },\r\n   {\r\n      \"name\":\"Bat_q\",\r\n      \"megaWattCapacity\":32.5,\r\n      \"postCode\":88888\r\n   },\r\n   {\r\n      \"name\":\"Bat_r\",\r\n      \"megaWattCapacity\":44,\r\n      \"postCode\":10370\r\n   },\r\n   {\r\n      \"name\":\"Bat_s\",\r\n      \"megaWattCapacity\":68.8,\r\n      \"postCode\":10115\r\n   },\r\n   {\r\n      \"name\":\"Bat_t\",\r\n      \"megaWattCapacity\":15,\r\n      \"postCode\":10370\r\n   },\r\n   {\r\n      \"name\":\"Bat_u\",\r\n      \"megaWattCapacity\":80,\r\n      \"postCode\":10370\r\n   },\r\n   {\r\n      \"name\":\"Bat_v\",\r\n      \"megaWattCapacity\":32,\r\n      \"postCode\":10400\r\n   },\r\n   {\r\n      \"name\":\"Bat_w\",\r\n      \"megaWattCapacity\":65,\r\n      \"postCode\":10400\r\n   },\r\n   {\r\n      \"name\":\"Bat_x\",\r\n      \"megaWattCapacity\":45,\r\n      \"postCode\":600\r\n   },\r\n   {\r\n      \"name\":\"Bat_y\",\r\n      \"megaWattCapacity\":25,\r\n      \"postCode\":100\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/power-plant/addBatteries",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"power-plant",
+								"addBatteries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Jul 2022 08:27:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Expectation Failed\": [\n        {\n            \"name\": \"Bat_j\",\n            \"megaWattCapacity\": 25,\n            \"postCode\": 77777\n        },\n        {\n            \"name\": \"Bat_q\",\n            \"megaWattCapacity\": 32.5,\n            \"postCode\": 88888\n        }\n    ],\n    \"Created\": [\n        {\n            \"name\": \"Bat_a\",\n            \"megaWattCapacity\": 30,\n            \"postCode\": 100\n        },\n        {\n            \"name\": \"Bat_b\",\n            \"megaWattCapacity\": 12.6,\n            \"postCode\": 200\n        },\n        {\n            \"name\": \"Bat_c\",\n            \"megaWattCapacity\": 16,\n            \"postCode\": 300\n        },\n        {\n            \"name\": \"Bat_d\",\n            \"megaWattCapacity\": 41,\n            \"postCode\": 400\n        },\n        {\n            \"name\": \"Bat_e\",\n            \"megaWattCapacity\": 23.4,\n            \"postCode\": 500\n        },\n        {\n            \"name\": \"Bat_f\",\n            \"megaWattCapacity\": 51.3,\n            \"postCode\": 600\n        },\n        {\n            \"name\": \"Bat_g\",\n            \"megaWattCapacity\": 20,\n            \"postCode\": 10115\n        },\n        {\n            \"name\": \"Bat_h\",\n            \"megaWattCapacity\": 12,\n            \"postCode\": 10150\n        },\n        {\n            \"name\": \"Bat_i\",\n            \"megaWattCapacity\": 30,\n            \"postCode\": 10115\n        },\n        {\n            \"name\": \"Bat_k\",\n            \"megaWattCapacity\": 72,\n            \"postCode\": 100\n        },\n        {\n            \"name\": \"Bat_l\",\n            \"megaWattCapacity\": 36,\n            \"postCode\": 200\n        },\n        {\n            \"name\": \"Bat_m\",\n            \"megaWattCapacity\": 6.5,\n            \"postCode\": 300\n        },\n        {\n            \"name\": \"Bat_n\",\n            \"megaWattCapacity\": 10,\n            \"postCode\": 200\n        },\n        {\n            \"name\": \"Bat_o\",\n            \"megaWattCapacity\": 17,\n            \"postCode\": 400\n        },\n        {\n            \"name\": \"Bat_p\",\n            \"megaWattCapacity\": 28,\n            \"postCode\": 10280\n        },\n        {\n            \"name\": \"Bat_r\",\n            \"megaWattCapacity\": 44,\n            \"postCode\": 10370\n        },\n        {\n            \"name\": \"Bat_s\",\n            \"megaWattCapacity\": 68.8,\n            \"postCode\": 10115\n        },\n        {\n            \"name\": \"Bat_t\",\n            \"megaWattCapacity\": 15,\n            \"postCode\": 10370\n        },\n        {\n            \"name\": \"Bat_u\",\n            \"megaWattCapacity\": 80,\n            \"postCode\": 10370\n        },\n        {\n            \"name\": \"Bat_v\",\n            \"megaWattCapacity\": 32,\n            \"postCode\": 10400\n        },\n        {\n            \"name\": \"Bat_w\",\n            \"megaWattCapacity\": 65,\n            \"postCode\": 10400\n        },\n        {\n            \"name\": \"Bat_x\",\n            \"megaWattCapacity\": 45,\n            \"postCode\": 600\n        },\n        {\n            \"name\": \"Bat_y\",\n            \"megaWattCapacity\": 25,\n            \"postCode\": 100\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Batteries (input range and response get with staticstics)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/power-plant/getBatteries?fromCode=10000&toCode=10500",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"power-plant",
+						"getBatteries"
+					],
+					"query": [
+						{
+							"key": "fromCode",
+							"value": "10000"
+						},
+						{
+							"key": "toCode",
+							"value": "10500"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getBatteries",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/power-plant/getBatteries?fromCode=10000&toCode=10500",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"power-plant",
+								"getBatteries"
+							],
+							"query": [
+								{
+									"key": "fromCode",
+									"value": "10000"
+								},
+								{
+									"key": "toCode",
+									"value": "10500"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Jul 2022 08:28:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"range\": \"10000-10500\",\n    \"noOfBatteries\": 10,\n    \"totalMWatts\": 394.8,\n    \"avgMWatt\": 39.480000000000004,\n    \"batteryNames\": [\n        \"Bat_g\",\n        \"Bat_h\",\n        \"Bat_i\",\n        \"Bat_p\",\n        \"Bat_r\",\n        \"Bat_s\",\n        \"Bat_t\",\n        \"Bat_u\",\n        \"Bat_v\",\n        \"Bat_w\"\n    ]\n}"
+				}
+			]
+		}
+	]
+}
