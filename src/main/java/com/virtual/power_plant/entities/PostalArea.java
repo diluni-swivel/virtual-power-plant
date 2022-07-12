@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Data
-public class PostalArea {
+public class PostalArea extends BaseEntity {
 
     @Id
     @Column(name = "post_code")

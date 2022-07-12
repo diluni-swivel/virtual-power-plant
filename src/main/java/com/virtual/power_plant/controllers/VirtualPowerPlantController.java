@@ -35,7 +35,7 @@ public class VirtualPowerPlantController {
 
     /**
      * GET API facilitates to get the statistics with the list of batteries names,
-     * which are implemented in the given range of postal codes.
+     * which are implemented in the given post codes range of postal codes.
      *
      * @param fromCode
      * @param toCode

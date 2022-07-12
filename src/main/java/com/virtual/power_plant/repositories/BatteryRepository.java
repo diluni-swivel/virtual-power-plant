@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Repository
 public interface BatteryRepository extends JpaRepository<Battery, Long> {
-    @Query("SELECT DISTINCT new com.virtual.power_plant.dtos.BatteryDto(a.name, a.mWattCapacity, b.postCode) FROM Battery a LEFT JOIN PostalArea b WHERE b.postCode BETWEEN :fromCode AND :toCode")
+    @Query("SELECT DISTINCT new com.virtual.power_plant.dtos.BatteryDto(a.name, a.mWattCapacity, b.postCode) FROM Battery a LEFT JOIN PostalArea b ON a.postCode=b.postCode WHERE b.postCode BETWEEN :fromCode AND :toCode")
     List<BatteryDto> findAllByPostalCodeRange(Long fromCode, Long toCode);
 
 }
