@@ -42,8 +42,12 @@ public class VirtualPowerPlantController {
      * @return PowerPlantDto obj
      */
     @RequestMapping(value = "/getBatteries", method = RequestMethod.GET)
-    public PowerPlantDto getBatteries(@RequestParam(required = true) Long fromCode, @RequestParam(required = true) Long toCode) {
-        return virtualPowerPlantService.getBatteries(fromCode, toCode);
+    public ResponseEntity<Object> getBatteries(@RequestParam(required = true) Long fromCode, @RequestParam(required = true) Long toCode) {
+        try {
+            return ResponseEntity.ok(virtualPowerPlantService.getBatteries(fromCode, toCode));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
     }
 
     /**

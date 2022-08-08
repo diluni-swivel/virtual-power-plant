@@ -53,19 +53,21 @@ public class VirtualPowerPlantServiceImpl implements VirtualPowerPlantService {
                 put(HttpStatus.EXPECTATION_FAILED.getReasonPhrase(), failIncidents);
             }};
         } catch (Exception e) {
-            return new HashMap<>() {{
-                put(e.getMessage(), batteryDtos);
-            }};
+            throw new RuntimeException("Exception is occurred while adding the batteries");
         }
     }
 
     @Override
     public PowerPlantDto getBatteries(Long fromCode, Long toCode) {
         List<BatteryDto> batteries = batteryRepository.findAllByPostalCodeRange(fromCode, toCode);
-        Double totalMWatts = batteries.stream().mapToDouble(BatteryDto::getMegaWattCapacity).sum();
-        List<String> batteryNames = batteries.stream().map(battery -> battery.getName()).collect(Collectors.toList());
-        Collections.sort(batteryNames);
-        return new PowerPlantDto(fromCode + "-" + toCode, batteries.size(), totalMWatts, (totalMWatts / batteries.size()), batteryNames);
+        if (batteries.size() > 0) {
+            Double totalMWatts = batteries.stream().mapToDouble(BatteryDto::getMegaWattCapacity).sum();
+            List<String> batteryNames = batteries.stream().map(battery -> battery.getName()).collect(Collectors.toList());
+            Collections.sort(batteryNames);
+            return new PowerPlantDto(fromCode + "-" + toCode, batteries.size(), totalMWatts, (totalMWatts / batteries.size()), batteryNames);
+        } else {
+            throw new RuntimeException("No batteries implement in the postal code range " + fromCode + " - " + toCode);
+        }
     }
 
     @Override

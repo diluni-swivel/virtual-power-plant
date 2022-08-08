@@ -18,4 +18,11 @@ public class PostalArea extends BaseEntity {
 
     private String areaName;
 
+    public PostalArea(){}
+
+    public PostalArea(Long postCode, String areaName) {
+        this.postCode = postCode;
+        this.areaName = areaName;
+    }
+
 }
