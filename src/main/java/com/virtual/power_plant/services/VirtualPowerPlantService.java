@@ -13,6 +13,10 @@ import java.util.Map;
  * on 7/12/2022
  */
 public interface VirtualPowerPlantService {
+    /**
+     * Common component in the virtual power plant system.
+     */
+
     Map<String, List<BatteryDto>> addBatteries(List<BatteryDto> batteries);
 
     PowerPlantDto getBatteries(Long fromCode, Long toCode);

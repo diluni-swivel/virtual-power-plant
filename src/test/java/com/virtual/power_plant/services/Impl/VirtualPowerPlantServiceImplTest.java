@@ -43,6 +43,9 @@ class VirtualPowerPlantServiceImplTest {
 
     BatteryDto batteryDto2;
 
+    /**
+     * Set up method of the test class
+     */
     @BeforeEach
     void setUp() {
         PostalArea mockPostalArea = new PostalArea(60330L, "Pothuhera");
@@ -53,6 +56,9 @@ class VirtualPowerPlantServiceImplTest {
         batteryDto2 = new BatteryDto("Battery_B", 10.5, 30000L);
     }
 
+    /**
+     * Add batteries both conditions true scenario
+     */
     @Test
     void addBatteries() {
         List<BatteryDto> batteryDtos = List.of(batteryDto1);
@@ -61,6 +67,9 @@ class VirtualPowerPlantServiceImplTest {
         assertEquals(0, actualResult.get("Expectation Failed").size());
     }
 
+    /**
+     * Add batteries both conditions false scenario
+     */
     @Test
     void addBatteriesBothConditionsFalse() {
         List<BatteryDto> batteryDtos = List.of(new BatteryDto("Battery_C", -50.3, 60330L), batteryDto2);
@@ -69,22 +78,31 @@ class VirtualPowerPlantServiceImplTest {
         assertEquals(batteryDtos, actualResult.get("Expectation Failed"));
     }
 
+    /**
+     * Add batteries postal code present condition true and false scenario
+     */
     @Test
-    void addBatteriesSomeCasesSuccess() {
+    void addBatteriesPresentPostalCodeTrue() {
         List<BatteryDto> batteryDtos = List.of(batteryDto1, batteryDto2);
         Map<String, List<BatteryDto>> actualResult = virtualPowerPlantServiceImpl.addBatteries(batteryDtos);
         assertEquals(List.of(batteryDtos.get(0)), actualResult.get("Created"));
         assertEquals(List.of(batteryDtos.get(1)), actualResult.get("Expectation Failed"));
     }
 
+    /**
+     * Add batteries valid megawatts condition true and false scenario
+     */
     @Test
-    void addBatteriesInvalidMegaWatts() {
+    void addBatteriesValidMegaWattsTrue() {
         List<BatteryDto> batteryDtos = List.of(new BatteryDto("Battery_C", -50.3, 60330L), batteryDto1);
         Map<String, List<BatteryDto>> actualResult = virtualPowerPlantServiceImpl.addBatteries(batteryDtos);
         assertEquals(List.of(batteryDtos.get(1)), actualResult.get("Created"));
         assertEquals(List.of(batteryDtos.get(0)), actualResult.get("Expectation Failed"));
     }
 
+    /**
+     * Add batteries findById postalAreaRepository call fail scenario
+     */
     @Test
     void addBatteriesFindByIdException() {
         when(postalAreaRepository.findById(any())).thenThrow(new RuntimeException());
@@ -95,6 +113,9 @@ class VirtualPowerPlantServiceImplTest {
         assertEquals("Exception is occurred while adding the batteries", exception.getMessage());
     }
 
+    /**
+     * Add batteries save batteryRepository call fail scenario
+     */
     @Test
     void addBatteriesSaveException() {
         when(batteryRepository.save(any())).thenThrow(new RuntimeException());
@@ -105,6 +126,9 @@ class VirtualPowerPlantServiceImplTest {
         assertEquals("Exception is occurred while adding the batteries", exception.getMessage());
     }
 
+    /**
+     * Get batteries success scenario
+     */
     @Test
     void getBatteries() {
         List<BatteryDto> batteryDtos = List.of(batteryDto1, new BatteryDto("Battery_D", 34.0, 60100L));
@@ -115,6 +139,9 @@ class VirtualPowerPlantServiceImplTest {
         assertEquals(expectedPowerPlantDto, actualPowerPlantDto);
     }
 
+    /**
+     * Get batteries fail scenario
+     */
     @Test
     void getBatteriesException() {
         when(batteryRepository.findAllByPostalCodeRange(any(), any())).thenReturn(new ArrayList<>());
@@ -124,6 +151,9 @@ class VirtualPowerPlantServiceImplTest {
         assertEquals("No batteries implement in the postal code range " + 60000L + " - " + 70000L, exception.getMessage());
     }
 
+    /**
+     * Add postal areas success scenario
+     */
     @Test
     void addPostalAreas() {
         List<PostalArea> mockPostalAreas = List.of(new PostalArea(60330L, "Pothuhera"),new PostalArea(70000L, "Kelaniya"));
@@ -131,6 +161,9 @@ class VirtualPowerPlantServiceImplTest {
         assertEquals(201, actualResult.getStatusCodeValue());
     }
 
+    /**
+     * Add postal areas fail scenario
+     */
     @Test
     void addPostalAreasException() {
         List<PostalArea> mockPostalAreas = List.of(new PostalArea(60330L, "Pothuhera"),new PostalArea(70000L, "Kelaniya"));

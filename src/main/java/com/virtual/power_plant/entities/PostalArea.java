@@ -11,7 +11,10 @@ import javax.persistence.*;
 @Entity
 @Data
 public class PostalArea extends BaseEntity {
-
+    /**
+     * Store all the postal area related data.
+     * Act as a master data entity of the system.
+     */
     @Id
     @Column(name = "post_code")
     private Long postCode;

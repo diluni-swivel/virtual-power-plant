@@ -10,6 +10,9 @@ import java.util.List;
  */
 @Data
 public class PowerPlantDto {
+    /**
+     * This DTO is used to map outgoing response entity in getBatteries GET REST API.
+     */
     String range;
     Integer noOfBatteries;
     Double totalMWatts;

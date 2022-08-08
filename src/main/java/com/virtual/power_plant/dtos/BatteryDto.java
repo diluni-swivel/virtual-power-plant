@@ -9,6 +9,10 @@ import lombok.NonNull;
  */
 @Data
 public class BatteryDto {
+    /**
+     * This DTO is used to map incoming request body in addBatteries POST REST API.
+     * All the variables in the object must be presented.
+     */
     @NonNull
     private String name;
     @NonNull

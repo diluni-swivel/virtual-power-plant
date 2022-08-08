@@ -11,7 +11,10 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Battery extends BaseEntity {
-
+    /**
+     * Store all the battery related data.
+     * Having a many-to-one relationship with the PostalArea entity.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long batteryId;

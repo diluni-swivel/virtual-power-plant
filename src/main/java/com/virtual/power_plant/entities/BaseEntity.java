@@ -15,7 +15,9 @@ import java.util.Date;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity implements Serializable {
-
+    /**
+     * Super class of the entity classes.
+     */
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private Date createdOn;

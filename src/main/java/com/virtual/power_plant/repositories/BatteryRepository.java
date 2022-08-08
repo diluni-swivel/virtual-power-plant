@@ -14,6 +14,10 @@ import java.util.List;
  */
 @Repository
 public interface BatteryRepository extends JpaRepository<Battery, Long> {
+    /**
+     * This repository maps DB Battery table with Battery entity in the application via Hibernate.
+     */
+
     @Query("SELECT DISTINCT new com.virtual.power_plant.dtos.BatteryDto(a.name, a.mWattCapacity, b.postCode) FROM Battery a LEFT JOIN PostalArea b ON a.postCode=b.postCode WHERE b.postCode BETWEEN :fromCode AND :toCode")
     List<BatteryDto> findAllByPostalCodeRange(Long fromCode, Long toCode);
 
